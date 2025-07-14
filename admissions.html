@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - NMTC Tamale</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #3b82f6; /* Blue underline */
+            border-radius: 9999px;
+        }
+        .admissions-hero-background {
+            background-image: url('https://placehold.co/1920x400/1d4ed8/ffffff?text=Admissions'); /* Placeholder image for Admissions hero */
+            background-size: cover;
+            background-position: center;
+        }
+        .step-icon {
+            font-size: 3rem; /* Larger icon size */
+            color: #3b82f6; /* Blue color for icons */
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header - Consistent with main site -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+           <div class="flex items-center text-center md:text-left">
+                <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-[#014820]">Nursing and Midwives <br/> Training College, Tamale</h1>
+            </div>
+
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-medium">
+                    <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">About Us</a></li>
+                    <li><a href="index.html#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Programs</a></li>
+                    <li><a href="admissions.html" class="text-blue-600 font-bold transition duration-300 rounded-md px-3 py-2">Admissions</a></li>
+                    <li><a href="admissions.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">News</a></li>
+                    <li><a href="index.html#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Gallery</a></li>
+                    <li><a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admissions Hero Section -->
+    <section class="admissions-hero-background bg-blue-700 text-white py-16 md:py-24 flex items-center justify-center text-center">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg shadow-xl max-w-2xl mx-4">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Admissions at NMTC Tamale</h2>
+            <p class="text-lg md:text-xl">Your journey to a rewarding healthcare career starts here.</p>
+        </div>
+    </section>
+
+    <!-- Admission Process Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">How to Apply</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 hover:shadow-xl">
+                    <div class="step-icon">1️⃣</div>
+                    <h4 class="text-xl font-semibold mb-3 text-blue-700">Obtain Application Form</h4>
+                    <p class="text-gray-700 leading-relaxed">Purchase the admission forms from designated banks or download them from our portal when applications are open.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 hover:shadow-xl">
+                    <div class="step-icon">📝</div>
+                    <h4 class="text-xl font-semibold mb-3 text-blue-700">Complete the Form</h4>
+                    <p class="text-gray-700 leading-relaxed">Fill out the application form accurately and completely, ensuring all required fields are addressed.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 hover:shadow-xl">
+                    <div class="step-icon">📄</div>
+                    <h4 class="text-xl font-semibold mb-3 text-blue-700">Attach Documents</h4>
+                    <p class="text-gray-700 leading-relaxed">Submit all necessary supporting documents, including academic transcripts, certificates, and identification.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 hover:shadow-xl">
+                    <div class="step-icon">✉️</div>
+                    <h4 class="text-xl font-semibold mb-3 text-blue-700">Submit Application</h4>
+                    <p class="text-gray-700 leading-relaxed">Return the completed form and documents to the college admissions office or submit online before the deadline.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">Download Application Form (Coming Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Requirements Section -->
+    <section class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">Admission Requirements</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">General Requirements:</h4>
+                    <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                        <li>Applicants must be at least 18 years old at the time of application.</li>
+                        <li>Possession of a Senior High School Certificate (WASSCE/SSSCE) or its equivalent.</li>
+                        <li>Passes in core subjects: English Language, Mathematics, Integrated Science.</li>
+                        <li>Passes in three elective subjects relevant to the chosen program.</li>
+                        <li>Good conduct and moral character.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">Program-Specific Requirements:</h4>
+                    <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                        <li>**Diploma in General Nursing:** Credit passes (A1-C6 for WASSCE, A-D for SSSCE) in core subjects and three elective science subjects (e.g., Biology, Chemistry, Physics).</li>
+                        <li>**Diploma in Registered Midwifery:** Credit passes in core subjects and three elective science subjects. Female applicants only.</li>
+                        <li>**Diploma in Post NAC/NAP Midwifery:** Must be a certified NAC/NAP with at least two years of post-qualification experience, plus credit passes in core subjects.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-700">For detailed requirements and specific subject combinations, please refer to our official admission brochure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-12 section-title mx-auto">Important Dates</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                    <p class="text-xl font-semibold text-blue-700 mb-2">Application Opens:</p>
+                    <p class="text-2xl font-bold text-blue-900">January 15, 2024</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg shadow-md">
+                    <p class="text-xl font-semibold text-red-700 mb-2">Application Deadline:</p>
+                    <p class="text-2xl font-bold text-red-900">April 30, 2024</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg shadow-md">
+                    <p class="text-xl font-semibold text-green-700 mb-2">Interviews/Entrance Exams:</p>
+                    <p class="text-2xl font-bold text-green-900">May 2024</p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg shadow-md col-span-full md:col-span-1 md:col-start-2">
+                    <p class="text-xl font-semibold text-purple-700 mb-2">Admission Letters Issued:</p>
+                    <p class="text-2xl font-bold text-purple-900">June 2024</p>
+                </div>
+            </div>
+            <p class="mt-8 text-gray-700 text-lg">Please note that dates are subject to change. Check this page regularly for updates.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">Frequently Asked Questions (FAQs)</h3>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-800">
+                            What are the minimum academic requirements?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        </summary>
+                        <p class="mt-4 text-gray-700 leading-relaxed">Applicants generally need WASSCE/SSSCE with credit passes (A1-C6/A-D) in English Language, Mathematics, Integrated Science, and three relevant elective subjects. Specific requirements vary by program.</p>
+                    </details>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-800">
+                            Is there an age limit for applicants?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        </summary>
+                        <p class="mt-4 text-gray-700 leading-relaxed">Yes, applicants must be at least 18 years old at the time of application.</p>
+                    </details>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-800">
+                            Can I apply online?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        </summary>
+                        <p class="mt-4 text-gray-700 leading-relaxed">Currently, application forms are primarily obtained from designated banks. We are working on an online application portal for future admissions.</p>
+                    </details>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-800">
+                            What documents are required for application?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        </summary>
+                        <p class="mt-4 text-gray-700 leading-relaxed">Required documents typically include academic transcripts, certificates, birth certificate, and a valid ID. A full list will be provided with the application form.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Consistent with main site -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+            <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

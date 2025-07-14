@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NMTC Tamale</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #3b82f6; /* Blue underline */
+            border-radius: 9999px;
+        }
+        .about-hero-background {
+            background-image: url('./image-1.jpeg'); /* Placeholder image for About Us hero */
+            background-size: cover;
+            background-position: center;
+            /* background-position: 10 -300px; */
+
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header - Consistent with main site -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+           <div class="flex items-center text-center md:text-left">
+                <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-[#014820]">Nursing and Midwives <br/> Training College, Tamale</h1>
+            </div>
+
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-medium">
+                    <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">Home</a></li>
+                    <li><a href="about.html" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">About Us</a></li>
+                    <li><a href="#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">Programs</a></li>
+                    <li><a href="admissions.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">Admissions</a></li>
+                    <li><a href="#news" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">News</a></li>
+                    <li><a href="#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">Gallery</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2 ">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Us Hero Section -->
+    <section class="about-hero-background bg-blue-500 text-white py-16 md:py-24 flex items-center justify-center text-center">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg shadow-xl max-w-2xl mx-4">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">About Us</h2>
+            <p class="text-lg md:text-xl">Discover our history, mission, vision, and values.</p>
+        </div>
+    </section>
+
+    <!-- Mission, Vision, Values Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4">🚀</div> <!-- Mission Icon -->
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 section-title mx-auto">Our Mission</h3>
+                    <p class="text-gray-700 leading-relaxed">To provide quality nursing and midwifery education, fostering critical thinking, promoting ethical practice, and instilling a lifelong commitment to professional development for competent healthcare professionals.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4">💡</div> <!-- Vision Icon -->
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 section-title mx-auto">Our Vision</h3>
+                    <p class="text-gray-700 leading-relaxed">To be a leading institution in healthcare education, recognized for excellence in training compassionate, innovative, and globally competent nurses and midwives who contribute significantly to public health.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4">✨</div> <!-- Values Icon -->
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 section-title mx-auto">Our Values</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-left mx-auto max-w-xs">
+                        <li>Excellence</li>
+                        <li>Compassion</li>
+                        <li>Integrity</li>
+                        <li>Innovation</li>
+                        <li>Teamwork</li>
+                        <li>Community Service</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">Our History</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-lg leading-relaxed">
+                    <p class="mb-6">The Nurses' and Midwives' Training College, Tamale, has a proud history dating back to [Insert Year of Establishment]. Founded with the aim of addressing the critical need for skilled healthcare professionals in the Northern Region and beyond, the college began with humble beginnings and a strong commitment to service.</p>
+                    <p class="mb-6">Over the decades, NMTC Tamale has grown significantly, expanding its academic programs, improving its facilities, and adapting to the evolving landscape of healthcare education. We have consistently produced graduates who are not only highly competent but also deeply empathetic, making a tangible difference in the lives of countless individuals.</p>
+                    <p>Today, we continue to build on this legacy, embracing modern teaching methodologies, fostering research, and maintaining strong ties with healthcare institutions to ensure our students receive the best possible training and practical exposure.</p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="./image-2.png" alt="NMTC History" class="rounded-lg shadow-lg w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership/Faculty Section (Placeholder) -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-12 section-title mx-auto">Our Leadership & Faculty</h3>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Meet the dedicated individuals who lead and inspire our students at NMTC Tamale. Our experienced faculty are committed to nurturing the next generation of healthcare professionals.</p>
+            <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">Meet Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer - Consistent with main site -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+            <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
