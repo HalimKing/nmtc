@@ -17,7 +17,31 @@
             position: relative;
             display: inline-block;
             padding-bottom: 8px;
+        }.mobile-menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #ffffff;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 40;
         }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu li {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            width: 100%;
+        }
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -38,31 +62,80 @@
             color: #3b82f6; /* Blue color for icons */
             margin-bottom: 1rem;
         }
+          .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #014820;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header - Consistent with main site -->
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-           <div class="flex items-center text-center md:text-left">
+       <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container lg:max-w-7xl mx-auto px-4 flex justify-between items-center relative lg:flex-row lg:items-center md:flex-col md:items-start">
+            <div class="flex items-center text-center md:text-left">
                 <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
                 <h1 class="text-xl sm:text-2xl font-bold text-[#014820]">Nursing and Midwives <br/> Training College, Tamale</h1>
             </div>
 
-            <nav>
-                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-medium">
-                    <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Home</a></li>
-                    <li><a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">About Us</a></li>
-                    <li><a href="index.html#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Programs</a></li>
-                    <li><a href="admissions.html" class="text-blue-600 font-bold transition duration-300 rounded-md px-3 py-2">Admissions</a></li>
-                    <li><a href="admissions.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">News</a></li>
-                    <li><a href="index.html#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Gallery</a></li>
-                    <li><a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-3 py-2">Contact</a></li>
+            <!-- Hamburger menu button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block md:mt-6">
+                <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium ">
+                    <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">About Us</a></li>
+                    <li><a href="#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">Programs</a></li>
+                    <li><a href="admissions.html" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">Admissions</a></li>
+                    <li><a href="#news" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">News</a></li>
+                    <li><a href="#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">Gallery</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 rounded-md px-2 py-1  md:py-2">Contact</a></li>
                 </ul>
             </nav>
         </div>
+
+        <!-- Mobile Navigation (hidden by default) -->
+        <nav id="mobile-nav" class="mobile-menu md:hidden">
+            <ul class="flex flex-col items-center text-lg font-medium">
+                <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Home</a></li>
+                <li><a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">About Us</a></li>
+                <li><a href="#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Programs</a></li>
+                <li><a href="admissions.html" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300 py-2">Admissions</a></li>
+                <li><a href="#news" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">News</a></li>
+                <li><a href="#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Gallery</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Contact</a></li>
+            </ul>
+        </nav>
     </header>
+
 
     <!-- Admissions Hero Section -->
     <section class="admissions-hero-background bg-blue-700 text-white py-16 md:py-24 flex items-center justify-center text-center">
@@ -74,7 +147,7 @@
 
     <!-- Admission Process Section -->
     <section class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container lg:max-w-7xl mx-auto px-4">
             <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">How to Apply</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Step 1 -->
@@ -110,7 +183,7 @@
 
     <!-- Admission Requirements Section -->
     <section class="py-16 md:py-24 bg-gray-100">
-        <div class="container mx-auto px-4">
+        <div class="container lg:max-w-7xl mx-auto px-4">
             <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">Admission Requirements</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
@@ -140,7 +213,7 @@
 
     <!-- Important Dates Section -->
     <section class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 text-center">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center">
             <h3 class="text-3xl md:text-4xl font-bold mb-12 section-title mx-auto">Important Dates</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="bg-blue-50 p-6 rounded-lg shadow-md">
@@ -166,7 +239,7 @@
 
     <!-- FAQ Section -->
     <section class="py-16 md:py-24 bg-gray-100">
-        <div class="container mx-auto px-4">
+        <div class="container lg:max-w-7xl mx-auto px-4">
             <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title mx-auto">Frequently Asked Questions (FAQs)</h3>
             <div class="max-w-3xl mx-auto space-y-6">
                 <!-- FAQ Item 1 -->
@@ -215,7 +288,7 @@
 
     <!-- Footer - Consistent with main site -->
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center text-sm">
+        <div class=" lg:max-w-7xl mx-auto px-4 text-center text-sm">
             <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
             <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
             <div class="flex justify-center space-x-4 mt-4">
@@ -225,5 +298,57 @@
         </div>
     </footer>
 
+     <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script type="text/javascript">
+        // alert("Welcome to the NMTC Tamale About Us page! Explore our mission, vision, and history.");
+            // Mobile Navigation Toggle functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked (for smoother navigation)
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                });
+            });
+
+            // Close mobile menu if resized to desktop view
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+
+
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            
+            // Show or hide the scroll-to-top button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Smooth scroll to top when button is clicked
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+    </script>
 </body>
 </html>
