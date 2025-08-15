@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta name="description" content="NMTC Tamale Academic Programs - Diploma in General Nursing, Registered Midwifery, and Post NAC/NAP Midwifery programs.">
+    <title>Academic Programs - NMTC Tamale</title>
+    <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+        color: #334155;
+    }
+    .section-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        height: 3px;
+        background-color: #014820;
+        border-radius: 9999px;
+    }
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 40;
+    }
+    .mobile-menu.active {
+        display: flex;
+    }
+    .mobile-menu li {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    .mobile-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #00b16a;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .scroll-to-top:hover {
+        background-color: rgba(8, 84, 53, 1);
+        transform: translateY(-3px);
+    }
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .program-card {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .program-card.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    .program-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+    .program-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s ease;
+    }
+    .program-card:hover .program-icon {
+        transform: rotate(10deg) scale(1.1);
+    }
+    .tab-button {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .tab-button.active {
+        background: linear-gradient(135deg, #00b16a 0%, #00d084 100%);
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 177, 106, 0.3);
+    }
+    .tab-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+    .tab-button:hover::before {
+        left: 100%;
+    }
+    .tab-content {
+        display: none;
+        animation: fadeInUp 0.6s ease-out;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .feature-list li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+    }
+    .feature-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: linear-gradient(135deg, #00b16a, #00d084);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .feature-list li:hover {
+        color: #00b16a;
+        transform: translateX(5px);
+    }
+    .admission-highlight {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .admission-highlight::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    .career-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .career-card:hover {
+        background: linear-gradient(135deg, #00b16a 0%, #00d084 100%);
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 177, 106, 0.2);
+    }
+    .stats-counter {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #00b16a, #00d084);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container lg:max-w-7xl mx-auto px-4 flex justify-between items-center relative lg:flex-row lg:items-center md:flex-col md:items-start">
+            <div class="flex items-center text-center md:text-left">
+                <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-[#00b16a]">Nursing and Midwives <br/> Training College, Tamale</h1>
+            </div>
+
+            <!-- Hamburger menu button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block md:mt-6">
+                <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium">
+                    <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">About Us</a></li>
+                    <li><a href="programs.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
+                    <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Admissions</a></li>
+                    <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Gallery</a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" class="mobile-menu md:hidden">
+            <ul class="flex flex-col items-center text-lg font-medium">
+                <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Home</a></li>
+                <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">About Us</a></li>
+                <li><a href="programs.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 py-2">Programs</a></li>
+                <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Admissions</a></li>
+                <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">News</a></li>
+                <li><a href="gallery.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Gallery</a></li>
+                <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-purple-600 to-blue-700 text-white overflow-hidden relative">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute top-10 left-10 w-72 h-72 bg-white opacity-5 rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-white opacity-5 rounded-full"></div>
+        
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-on-scroll">Academic Programs</h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-8 animate-on-scroll" style="animation-delay: 0.2s;">
+                Shaping the Future of Healthcare through Excellence in Education
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll" style="animation-delay: 0.4s;">
+                <a href="#programs-overview" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Explore Programs
+                </a>
+                <a href="admissions.html" class="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Overview -->
+    <section id="programs-overview" class="py-16 md:py-24 bg-white">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 section-title mx-auto animate-on-scroll">Our Programs</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto animate-on-scroll">
+                    NMTC Tamale offers comprehensive healthcare education programs designed to prepare competent, 
+                    compassionate, and skilled professionals for the evolving healthcare industry.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Diploma in General Nursing -->
+                <div class="program-card bg-white rounded-2xl shadow-xl p-8 border hover:border-blue-300 transition-all duration-300">
+                    <div class="program-icon w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">Diploma in General Nursing</h3>
+                    <div class="text-center mb-6">
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">3 Years Program</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A comprehensive program that prepares students for professional nursing practice in various healthcare settings 
+                        with strong foundations in clinical skills, patient care, and healthcare ethics.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Clinical Rotations in Major Hospitals
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Advanced Simulation Training
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Professional Licensing Preparation
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-blue-700 transition duration-300 transform hover:scale-105" onclick="showProgramDetails('nursing')">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Diploma in Registered Midwifery -->
+                <div class="program-card bg-white rounded-2xl shadow-xl p-8 border hover:border-pink-300 transition-all duration-300">
+                    <div class="program-icon w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">Diploma in Registered Midwifery</h3>
+                    <div class="text-center mb-6">
+                        <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-semibold">3 Years Program</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Specialized training focused on maternal and child health, preparing midwives to provide expert care 
+                        during pregnancy, childbirth, and postnatal period with emphasis on family-centered care.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Maternity and Obstetric Training
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Community Health Focus
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Family Planning Education
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white font-bold py-3 px-6 rounded-lg hover:from-pink-600 hover:to-pink-700 transition duration-300 transform hover:scale-105" onclick="showProgramDetails('midwifery')">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Post NAC/NAP Midwifery -->
+                <div class="program-card bg-white rounded-2xl shadow-xl p-8 border hover:border-green-300 transition-all duration-300">
+                    <div class="program-icon w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">Post NAC/NAP Midwifery</h3>
+                    <div class="text-center mb-6">
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">2 Years Program</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Advanced program for Nursing Assistant Clinical (NAC) and Nursing Assistant Preventive (NAP) 
+                        professionals seeking to specialize in midwifery practice with accelerated learning pathways.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Accelerated Learning Track
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Career Advancement Focus
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Professional Recognition
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-3 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition duration-300 transform hover:scale-105" onclick="showProgramDetails('post-nac')">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Program Information -->
+    <section class="py-16 bg-gray-50">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center mb-12 gap-4">
+                <button class="tab-button active px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('nursing')">
+                    General Nursing
+                </button>
+                <button class="tab-button px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('midwifery')">
+                    Registered Midwifery
+                </button>
+                <button class="tab-button px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('post-nac')">
+                    Post NAC/NAP
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="nursing-content" class="tab-content active">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Diploma in General Nursing</h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">Program Overview</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Our three-year Diploma in General Nursing program is designed to prepare competent, caring, and skilled registered nurses. 
+                                The curriculum combines theoretical knowledge with extensive clinical practice to ensure graduates are ready for professional practice.
+                            </p>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">Core Subjects</h4>
+                            <ul class="feature-list space-y-2 mb-6">
+                                <li>Anatomy and Physiology</li>
+                                <li>Fundamentals of Nursing</li>
+                                <li>Medical-Surgical Nursing</li>
+                                <li>Pediatric Nursing</li>
+                                <li>Mental Health Nursing</li>
+                                <li>Community Health Nursing</li>
+                                <li>Pharmacology</li>
+                                <li>Nursing Research and Ethics</li>
+                            </ul>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">Career Opportunities</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🏥</div>
+                                    <p class="font-semibold">Hospital Nurse</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🏘️</div>
+                                    <p class="font-semibold">Community Nurse</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🎓</div>
+                                    <p class="font-semibold">Nurse Educator</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">⚕️</div>
+                                    <p class="font-semibold">Clinical Specialist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg mb-6">
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">Admission Requirements</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>West African Senior School Certificate Examination (WASSCE) with credits in English, Mathematics, Integrated Science, and Social Studies</li>
+                                <li>General Certificate of Education (GCE) Advanced Level with at least two passes</li>
+                                <li>Diploma in Science or related field from a recognized institution</li>
+                                <li>Mature age entry (25+ years) with relevant work experience</li>
+                                <li>Medical fitness certificate</li>
+                                <li>Police clearance certificate</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">Program Highlights</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>State-of-the-art simulation laboratories</li>
+                                <li>Clinical placements in leading hospitals</li>
+                                <li>Experienced faculty with advanced qualifications</li>
+                                <li>Small class sizes for personalized attention</li>
+                                <li>International exchange opportunities</li>
+                                <li>Professional development workshops</li>
+                                <li>Career counseling and job placement support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="midwifery-content" class="tab-content">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Diploma in Registered Midwifery</h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-pink-600">Program Overview</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Our comprehensive three-year midwifery program prepares skilled midwives to provide expert care throughout the childbearing process. 
+                                Students learn to support women and families during pregnancy, labor, birth, and the postnatal period.
+                            </p>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-pink-600">Core Subjects</h4>
+                            <ul class="feature-list space-y-2 mb-6">
+                                <li>Anatomy and Physiology of Reproduction</li>
+                                <li>Antenatal Care and Management</li>
+                                <li>Normal and Abnormal Labor</li>
+                                <li>Postnatal Care</li>
+                                <li>Newborn Care and Resuscitation</li>
+                                <li>Family Planning and Reproductive Health</li>
+                                <li>Maternal and Child Nutrition</li>
+                                <li>Midwifery Ethics and Professional Practice</li>
+                            </ul>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-pink-600">Career Opportunities</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">👶</div>
+                                    <p class="font-semibold">Hospital Midwife</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🏠</div>
+                                    <p class="font-semibold">Community Midwife</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🩺</div>
+                                    <p class="font-semibold">Birth Center Director</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">📚</div>
+                                    <p class="font-semibold">Midwifery Educator</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg mb-6">
+                            <h4 class="text-xl font-semibold mb-4 text-pink-600">Admission Requirements</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>WASSCE with credits in English, Mathematics, Integrated Science, and Social Studies</li>
+                                <li>GCE Advanced Level with at least two passes</li>
+                                <li>Previous healthcare experience preferred</li>
+                                <li>Physical and emotional fitness for midwifery practice</li>
+                                <li>Good communication skills</li>
+                                <li>Commitment to women's health advocacy</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-pink-600">Clinical Placements</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>Maternity units in regional hospitals</li>
+                                <li>Community health centers</li>
+                                <li>Family planning clinics</li>
+                                <li>Neonatal intensive care units</li>
+                                <li>Rural health outreach programs</li>
+                                <li>Traditional birth attendant training sites</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="post-nac-content" class="tab-content">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Post NAC/NAP Midwifery</h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">Program Overview</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                This intensive two-year program is designed for qualified Nursing Assistant Clinical (NAC) and 
+                                Nursing Assistant Preventive (NAP) professionals who wish to advance their careers in midwifery. 
+                                The program builds upon existing healthcare knowledge and skills.
+                            </p>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">Program Structure</h4>
+                            <ul class="feature-list space-y-2 mb-6">
+                                <li>Advanced Reproductive Health</li>
+                                <li>High-Risk Pregnancy Management</li>
+                                <li>Emergency Obstetric Care</li>
+                                <li>Neonatal Care and Management</li>
+                                <li>Family Planning Counseling</li>
+                                <li>Leadership in Midwifery Practice</li>
+                                <li>Research Methods in Midwifery</li>
+                                <li>Quality Improvement in Maternal Care</li>
+                            </ul>
+                            
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">Career Advancement</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">👩‍⚕️</div>
+                                    <p class="font-semibold">Senior Midwife</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🏥</div>
+                                    <p class="font-semibold">Unit Manager</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">📋</div>
+                                    <p class="font-semibold">Program Coordinator</p>
+                                </div>
+                                <div class="career-card bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🌍</div>
+                                    <p class="font-semibold">Public Health Specialist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg mb-6">
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">Admission Requirements</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>Valid NAC or NAP certificate from a recognized institution</li>
+                                <li>Minimum of 2 years professional experience</li>
+                                <li>Current professional license and registration</li>
+                                <li>Letter of recommendation from current employer</li>
+                                <li>Personal statement explaining career goals</li>
+                                <li>Interview with admissions committee</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">Program Benefits</h4>
+                            <ul class="feature-list space-y-2">
+                                <li>Accelerated pathway to midwifery qualification</li>
+                                <li>Credit for prior learning and experience</li>
+                                <li>Flexible scheduling for working professionals</li>
+                                <li>Mentorship from senior midwives</li>
+                                <li>Professional development opportunities</li>
+                                <li>Career advancement support</li>
+                                <li>Networking with healthcare leaders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Statistics -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Program Success</h2>
+                <p class="text-xl opacity-90 animate-on-scroll">Excellence in healthcare education for over 50 years</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center animate-on-scroll">
+                    <div class="stats-counter mb-2">98%</div>
+                    <div class="text-lg opacity-90">Graduate Employment Rate</div>
+                </div>
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.1s;">
+                    <div class="stats-counter mb-2">95%</div>
+                    <div class="text-lg opacity-90">Licensing Exam Pass Rate</div>
+                </div>
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="stats-counter mb-2">5000+</div>
+                    <div class="text-lg opacity-90">Alumni Worldwide</div>
+                </div>
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.3s;">
+                    <div class="stats-counter mb-2">50+</div>
+                    <div class="text-lg opacity-90">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="py-16 bg-white">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 section-title mx-auto animate-on-scroll">Admission Process</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto animate-on-scroll">
+                    Start your journey toward a rewarding healthcare career with our streamlined admission process
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-on-scroll">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Application</h3>
+                    <p class="text-gray-600">Submit your completed application form with required documents</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold mb-4">Review</h3>
+                    <p class="text-gray-600">Our admissions team reviews your application and academic credentials</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold mb-4">Interview</h3>
+                    <p class="text-gray-600">Participate in an interview to discuss your goals and motivation</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">4</div>
+                    <h3 class="text-xl font-semibold mb-4">Enrollment</h3>
+                    <p class="text-gray-600">Receive your acceptance letter and complete enrollment procedures</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-on-scroll">
+                <div class="admission-highlight text-white p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Start Your Healthcare Journey?</h3>
+                    <p class="text-lg mb-6 opacity-90">Applications for the next academic year are now open</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="admissions.html" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                            Apply Now
+                        </a>
+                        <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                            Contact Admissions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">NMTC Tamale</h3>
+                    <p class="text-gray-300">Nurturing Compassion, Building Competence, Shaping Healthcare Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Programs</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">General Nursing</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Registered Midwifery</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Post NAC/NAP</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="admissions.html" class="text-gray-300 hover:text-white transition duration-300">Admissions</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>📍 Tamale Central, Northern Region</li>
+                        <li>📞 (+233) 372 095 859</li>
+                        <li>📧 principal@nmtctamale.edu.gh</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-sm">
+                <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+                <p class="mt-2 text-blue-400">Designed by Nifty Global Systems</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+
+            // Scroll to top functionality
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Tab functionality
+            window.showTab = function(tabName) {
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                document.getElementById(tabName + '-content').classList.add('active');
+                
+                // Add active class to clicked button
+                event.target.classList.add('active');
+            };
+
+            // Program details functionality
+            window.showProgramDetails = function(programType) {
+                // Switch to the corresponding tab
+                showTab(programType);
+                
+                // Scroll to the detailed section
+                document.querySelector('.py-16.bg-gray-50').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Update the tab button to active state
+                const buttons = document.querySelectorAll('.tab-button');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                const targetButton = Array.from(buttons).find(btn => 
+                    btn.textContent.toLowerCase().includes(programType.replace('-', ' '))
+                );
+                if (targetButton) {
+                    targetButton.classList.add('active');
+                }
+            };
+
+            // Scroll Animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll, .program-card');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            animateElements.forEach((element, index) => {
+                const elementObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 100); // Staggered animation
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                elementObserver.observe(element);
+            });
+
+            // Counter animation for statistics
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stats-counter');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                    const suffix = counter.textContent.replace(/[0-9]/g, '');
+                    let current = 0;
+                    const increment = target / 100;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        counter.textContent = Math.floor(current) + suffix;
+                    }, 20);
+                });
+            }
+
+            // Trigger counter animation when statistics section is visible
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.stats-counter').closest('section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

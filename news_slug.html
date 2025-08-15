@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta name="description" content="Management Pays Courtesy Visit to Chief to Foster Institutional Development - NMTC Tamale strengthens community partnerships.">
+    <title>Management Pays Courtesy Visit to Chief - NMTC Tamale</title>
+    <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+        color: #334155;
+        line-height: 1.7;
+    }
+    .section-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        height: 3px;
+        background-color: #014820;
+        border-radius: 9999px;
+    }
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 40;
+    }
+    .mobile-menu.active {
+        display: flex;
+    }
+    .mobile-menu li {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    .mobile-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #00b16a;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .scroll-to-top:hover {
+        background-color: rgba(8, 84, 53, 1);
+        transform: translateY(-3px);
+    }
+    /* Animation classes */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .breadcrumb {
+        background: linear-gradient(135deg, #00b16a 0%, #014820 100%);
+    }
+    .news-category {
+        background: #00b16a;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .news-date {
+        color: #64748b;
+        font-size: 0.875rem;
+    }
+    .article-content {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #374151;
+    }
+    .article-content h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem 0;
+        color: #1f2937;
+    }
+    .article-content h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.75rem 0;
+        color: #1f2937;
+    }
+    .article-content p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+    }
+    .article-content ul, .article-content ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+    }
+    .article-content li {
+        margin-bottom: 0.5rem;
+    }
+    .article-content blockquote {
+        border-left: 4px solid #00b16a;
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+    }
+    .social-share-btn {
+        transition: all 0.3s ease;
+    }
+    .social-share-btn:hover {
+        transform: translateY(-2px);
+    }
+    .related-article {
+        transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
+    }
+    .related-article:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-color: #00b16a;
+    }
+    .author-bio {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    .tag {
+        background: #e5e7eb;
+        color: #374151;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+    }
+    .tag:hover {
+        background: #00b16a;
+        color: white;
+    }
+</style>
+
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container lg:max-w-7xl mx-auto px-4 flex justify-between items-center relative lg:flex-row lg:items-center md:flex-col md:items-start">
+            <div class="flex items-center text-center md:text-left">
+                <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-[#00b16a]">Nursing and Midwives <br/> Training College, Tamale</h1>
+            </div>
+
+            <!-- Hamburger menu button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block md:mt-6">
+                <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium">
+                    <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">About Us</a></li>
+                    <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
+                    <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Admissions</a></li>
+                    <li><a href="news.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
+                    <li><a href="index.html#gallery" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Gallery</a></li>
+                    <li><a href="index.html#contact" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" class="mobile-menu md:hidden">
+            <ul class="flex flex-col items-center text-lg font-medium">
+                <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Home</a></li>
+                <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">About Us</a></li>
+                <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Programs</a></li>
+                <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Admissions</a></li>
+                <li><a href="news.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 py-2">News</a></li>
+                <li><a href="index.html#gallery" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Gallery</a></li>
+                <li><a href="index.html#contact" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb text-white py-6">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <nav class="text-sm md:text-base">
+                <a href="index.html" class="hover:text-gray-200 transition duration-300">Home</a>
+                <span class="mx-2">/</span>
+                <a href="news.html" class="hover:text-gray-200 transition duration-300">News</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-200">Article</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <main class="py-12">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- Main Article Content -->
+                <article class="lg:col-span-3">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll">
+                        
+                        <!-- Article Header -->
+                        <div class="p-8 pb-0">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="news-category">Events</span>
+                                <span class="news-date">December 15, 2024</span>
+                                <span class="text-gray-400">•</span>
+                                <span class="text-sm text-gray-500">5 min read</span>
+                            </div>
+                            
+                            <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 leading-tight">Management Pays Courtesy Visit to Chief to Foster Institutional Development</h1>
+                            
+                            <!-- Author and Social Share -->
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                                <div class="flex items-center mb-4 md:mb-0">
+                                    <img src="./images/t1.png" alt="Author" class="w-12 h-12 rounded-full mr-4 object-cover">
+                                    <div>
+                                        <p class="font-semibold text-gray-900">NMTC Communications</p>
+                                        <p class="text-sm text-gray-500">Public Relations Office</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Social Share -->
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-sm text-gray-600 mr-2">Share:</span>
+                                    <button class="social-share-btn bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="social-share-btn bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="social-share-btn bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Featured Image -->
+                        <div class="px-8">
+                            <img src="./images/event1.jpeg" alt="Management team with traditional chief" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md mb-8">
+                            <p class="text-sm text-gray-500 text-center mb-8 italic">Management team of NMTC Tamale during the courtesy visit to the traditional authority</p>
+                        </div>
+
+                        <!-- Article Body -->
+                        <div class="px-8 pb-8">
+                            <div class="article-content">
+                                <p><strong>TAMALE, Northern Region</strong> - In a significant move to strengthen community partnerships and foster institutional development, the management team of the Nurses and Midwives Training College, Tamale, has paid a courtesy call on His Royal Highness, the revered traditional chief of the area.</p>
+
+                                <p>The delegation, led by the College Principal, Mrs. Sarah Mensah, and accompanied by senior administrative staff, was warmly received at the chief's palace on Thursday, December 15, 2024. The meeting was aimed at discussing collaborative opportunities that could benefit both the institution and the broader community.</p>
+
+                                <h2>Building Stronger Community Ties</h2>
+
+                                <p>During the visit, Mrs. Mensah emphasized the college's commitment to working closely with traditional authorities to ensure that the institution remains deeply rooted in community values while maintaining its academic excellence. "Our students are not just future healthcare professionals; they are members of this community who will serve both locally and nationally," she stated.</p>
+
+                                <blockquote>
+                                    "The college has always been a beacon of hope for our community, and we are proud to support its continued growth and development. Our doors are always open for collaboration that benefits our people." - His Royal Highness, Traditional Chief
+                                </blockquote>
+
+                                <p>The chief, in his response, commended the college management for their proactive approach to community engagement. He highlighted the significant impact that NMTC Tamale graduates have had on healthcare delivery in the region over the years.</p>
+
+                                <h3>Areas of Collaboration Discussed</h3>
+
+                                <p>The meeting covered several key areas where the college and traditional authority could work together:</p>
+
+                                <ul>
+                                    <li><strong>Community Health Outreach Programs:</strong> Expanding student-led health education and screening programs in rural communities</li>
+                                    <li><strong>Cultural Integration:</strong> Incorporating local cultural practices and traditional healing knowledge into the nursing curriculum</li>
+                                    <li><strong>Infrastructure Development:</strong> Seeking community support for ongoing expansion projects at the college</li>
+                                    <li><strong>Student Accommodation:</strong> Exploring opportunities for safe, affordable housing options for students</li>
+                                    <li><strong>Employment Opportunities:</strong> Creating pathways for graduates to serve in community health centers and clinics</li>
+                                </ul>
+
+                                <h2>Future Plans and Commitments</h2>
+
+                                <p>The meeting concluded with both parties expressing their commitment to regular dialogue and collaboration. Plans were made for the chief to visit the college campus in the coming month to see firsthand the facilities and ongoing programs.</p>
+
+                                <p>Additionally, the college management extended an invitation to the traditional authority to participate in the upcoming graduation ceremony, where over 150 students are expected to receive their diplomas in various nursing and midwifery programs.</p>
+
+                                <h3>Impact on Students and Community</h3>
+
+                                <p>This initiative is expected to have far-reaching positive effects on both current students and the wider community. Students will benefit from enhanced practical learning opportunities through community engagement, while local residents will have improved access to health education and basic medical services.</p>
+
+                                <p>The college has already seen increased community support since the announcement of this partnership, with several local organizations expressing interest in supporting student programs and activities.</p>
+
+                                <p>As NMTC Tamale continues to grow and evolve, partnerships like this one demonstrate the institution's commitment to being not just an educational center, but a true community partner dedicated to improving healthcare outcomes across the Northern Region.</p>
+
+                                <p><em>For more information about NMTC Tamale's community programs and partnerships, visit our website or contact the Public Relations Office at communications@nmtctamale.edu.gh</em></p>
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="mt-8 pt-6 border-t border-gray-200">
+                                <p class="text-sm font-semibold text-gray-600 mb-3">Tags:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag cursor-pointer">Community Partnership</span>
+                                    <span class="tag cursor-pointer">Traditional Authority</span>
+                                    <span class="tag cursor-pointer">Institutional Development</span>
+                                    <span class="tag cursor-pointer">Healthcare Education</span>
+                                    <span class="tag cursor-pointer">Northern Region</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div class="author-bio mt-8 p-6 rounded-lg animate-on-scroll">
+                        <h3 class="text-xl font-bold mb-4">About the Author</h3>
+                        <div class="flex items-start space-x-4">
+                            <img src="./images/t1.png" alt="NMTC Communications Team" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-semibold text-lg">NMTC Communications Team</h4>
+                                <p class="text-gray-600 text-sm mb-2">Public Relations Office</p>
+                                <p class="text-gray-700">The NMTC Communications Team is responsible for sharing the latest news, events, and achievements from the Nurses and Midwives Training College, Tamale. Our team is dedicated to keeping the community informed about the college's ongoing commitment to excellence in healthcare education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        
+                        <!-- Recent News -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 animate-on-scroll">
+                            <h3 class="text-xl font-bold mb-4 section-title">Recent News</h3>
+                            <div class="space-y-4">
+                                <article class="related-article p-4 rounded-lg cursor-pointer">
+                                    <img src="./images/slide1.jpeg" alt="Recent news" class="w-full h-24 object-cover rounded mb-3">
+                                    <h4 class="font-semibold text-sm mb-2 hover:text-[#00b16a] transition duration-300">State-of-the-Art Simulation Lab Officially Opened</h4>
+                                    <p class="text-xs text-gray-500">January 20, 2025</p>
+                                </article>
+                                
+                                <article class="related-article p-4 rounded-lg cursor-pointer">
+                                    <img src="./images/slide2.jpeg" alt="Recent news" class="w-full h-24 object-cover rounded mb-3">
+                                    <h4 class="font-semibold text-sm mb-2 hover:text-[#00b16a] transition duration-300">NMTC Students Win Regional Nursing Competition</h4>
+                                    <p class="text-xs text-gray-500">January 15, 2025</p>
+                                </article>
+                                
+                                <article class="related-article p-4 rounded-lg cursor-pointer">
+                                    <img src="./images/slide3.jpeg" alt="Recent news" class="w-full h-24 object-cover rounded mb-3">
+                                    <h4 class="font-semibold text-sm mb-2 hover:text-[#00b16a] transition duration-300">2025/2026 Academic Year Admissions Now Open</h4>
+                                    <p class="text-xs text-gray-500">January 10, 2025</p>
+                                </article>
+                            </div>
+                            <div class="mt-4">
+                                <a href="news.html" class="text-[#00b16a] hover:text-green-700 font-semibold text-sm inline-flex items-center">
+                                    View All News
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 animate-on-scroll">
+                            <h3 class="text-xl font-bold mb-4 section-title">Quick Links</h3>
+                            <ul class="space-y-3">
+                                <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                    Admissions
+                                </a></li>
+                                <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                    Academic Programs
+                                </a></li>
+                                <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                    About Us
+                                </a></li>
+                                <li><a href="index.html#contact" class="text-gray-700 hover:text-[#00b16a] transition duration-300 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                    Contact Us
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="py-12 bg-[#00b16a] text-white">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-3xl font-bold mb-4">Stay Updated</h3>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Subscribe to our newsletter to receive the latest news, events, and updates from NMTC Tamale directly in your inbox.</p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+                <button type="submit" class="bg-white text-[#00b16a] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                        <h3 class="text-xl font-bold text-[#00b16a]">NMTC Tamale</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Nurturing Compassion, Building Competence, Shaping Healthcare Leaders.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="index.html#programs" class="hover:text-white transition duration-300">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition duration-300">Admissions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>📍 Tamale Central, Northern Region</li>
+                        <li>📞 (+233) 372 095 859</li>
+                        <li>📧 principal@nmtctamale.edu.gh</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-sm">
+                <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+                <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                });
+            });
+
+            // Close mobile menu if resized to desktop view
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+
+            // Scroll to top functionality
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation on scroll functionality
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            animateElements.forEach((element, index) => {
+                const animationObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 200);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                animationObserver.observe(element);
+            });
+
+            // Social Share Functionality
+            const shareButtons = document.querySelectorAll('.social-share-btn');
+            
+            shareButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    const title = document.querySelector('h1').textContent;
+                    const url = window.location.href;
+                    
+                    switch(index) {
+                        case 0: // Facebook
+                            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=600,height=400');
+                            break;
+                        case 1: // Twitter
+                            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank', 'width=600,height=400');
+                            break;
+                        case 2: // WhatsApp
+                            window.open(`https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+                            break;
+                    }
+                });
+            });
+
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('form');
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                if (email) {
+                    alert('Thank you for subscribing to our newsletter!');
+                    e.target.querySelector('input[type="email"]').value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+
+            // Related articles click functionality
+            const relatedArticles = document.querySelectorAll('.related-article');
+            relatedArticles.forEach(article => {
+                article.addEventListener('click', () => {
+                    // In a real implementation, this would navigate to the actual article
+                    console.log('Navigate to:', article.querySelector('h4').textContent);
+                });
+            });
+
+            // Tag click functionality
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    // In a real implementation, this would filter news by tag
+                    console.log('Filter by tag:', tag.textContent);
+                });
+            });
+
+            // Print functionality (can be added)
+            function printArticle() {
+                window.print();
+            }
+
+            // Reading time calculation (enhanced)
+            function calculateReadingTime() {
+                const article = document.querySelector('.article-content');
+                const words = article.textContent.split(' ').length;
+                const readingTime = Math.ceil(words / 200); // 200 words per minute
+                return readingTime;
+            }
+
+            // Update reading time if needed
+            const readingTimeElement = document.querySelector('.news-date').parentElement.querySelector('span:last-child');
+            if (readingTimeElement) {
+                const calculatedTime = calculateReadingTime();
+                readingTimeElement.textContent = `${calculatedTime} min read`;
+            }
+        });
+    </script>
+</body>
+</html>

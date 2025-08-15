@@ -1,0 +1,742 @@
+}
+</style>
+
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container lg:max-w-7xl mx-auto px-4 flex justify-between items-center relative lg:flex-row lg:items-center md:flex-col md:items-start">
+            <div class="flex items-center text-center md:text-left">
+                <img src="./images/logo.jpeg" alt="College Logo" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-[#00b16a]">Nursing and Midwives <br/> Training College, Tamale</h1>
+            </div>
+
+            <!-- Hamburger menu button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block md:mt-6">
+                <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium">
+                    <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">About Us</a></li>
+                    <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
+                    <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Admissions</a></li>
+                    <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
+                    <li><a href="gallery.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Gallery</a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" class="mobile-menu md:hidden">
+            <ul class="flex flex-col items-center text-lg font-medium">
+                <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Home</a></li>
+                <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">About Us</a></li>
+                <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Programs</a></li>
+                <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Admissions</a></li>
+                <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">News</a></li>
+                <li><a href="gallery.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 py-2">Gallery</a></li>
+                <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 py-2">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-green-600 to-green-800 text-white">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-on-scroll">Gallery</h1>
+            <p class="text-xl md:text-2xl opacity-90 animate-on-scroll" style="animation-delay: 0.2s;">Explore our campus, facilities, and student life</p>
+        </div>
+    </section>
+
+    <!-- Filter Navigation -->
+    <section class="py-8 bg-white sticky top-20 z-40 shadow-sm">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-button active bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="all">
+                    All Photos
+                </button>
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="campus">
+                    Campus
+                </button>
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="facilities">
+                    Facilities
+                </button>
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="students">
+                    Student Life
+                </button>
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="events">
+                    Events
+                </button>
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="graduation">
+                    Graduation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="gallery-grid">
+                
+                <!-- Campus Images -->
+                <div class="gallery-item" data-category="campus">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/slide1.jpeg" alt="Campus Building" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Main Campus Building</h3>
+                            <p class="text-gray-600 text-sm">Administrative block and lecture halls</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/slide2.jpeg" alt="Campus Grounds" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Campus Grounds</h3>
+                            <p class="text-gray-600 text-sm">Beautiful landscaped campus environment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/slide3.jpeg" alt="Campus View" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Campus Overview</h3>
+                            <p class="text-gray-600 text-sm">Aerial view of the college premises</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities Images -->
+                <div class="gallery-item" data-category="facilities">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/image-2.png" alt="Library" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">College Library</h3>
+                            <p class="text-gray-600 text-sm">Modern learning resources center</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/image-3.png" alt="Simulation Lab" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Simulation Laboratory</h3>
+                            <p class="text-gray-600 text-sm">State-of-the-art training facilities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Life Images -->
+                <div class="gallery-item" data-category="students">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/t1.png" alt="Student Activities" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Student Activities</h3>
+                            <p class="text-gray-600 text-sm">Engaging campus life experiences</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="students">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/t2.png" alt="Study Groups" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Collaborative Learning</h3>
+                            <p class="text-gray-600 text-sm">Students working together</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Images -->
+                <div class="gallery-item" data-category="events">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/event1.jpeg" alt="Campus Event" class="gallery-image w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Community Outreach</h3>
+                            <p class="text-gray-600 text-sm">Management courtesy visit</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder images for demonstration -->
+                <div class="gallery-item" data-category="facilities">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="gallery-image w-full h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                </svg>
+                                <p class="text-sm">Chemistry Lab</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Chemistry Laboratory</h3>
+                            <p class="text-gray-600 text-sm">Advanced chemistry lab for students</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="graduation">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="gallery-image w-full h-64 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                </svg>
+                                <p class="text-sm">Graduation Ceremony</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Graduation Day 2024</h3>
+                            <p class="text-gray-600 text-sm">Celebrating our nursing graduates</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="students">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="gallery-image w-full h-64 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M17 20v-2M9 11c0 1.657-.895 3-2 3s-2-1.343-2-3 .895-3 2-3 2 1.343 2 3z"></path>
+                                </svg>
+                                <p class="text-sm">Clinical Practice</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Clinical Training</h3>
+                            <p class="text-gray-600 text-sm">Hands-on nursing practice sessions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="gallery-image w-full h-64 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-sm">Health Fair</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800">Annual Health Fair</h3>
+                            <p class="text-gray-600 text-sm">Community health awareness event</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12 animate-on-scroll">
+                <button id="load-more" class="bg-[#00b16a] hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-on-scroll">
+                    <div class="text-4xl font-bold mb-2">1,845+</div>
+                    <div class="text-lg opacity-90">Students</div>
+                </div>
+                <div class="animate-on-scroll" style="animation-delay: 0.1s;">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-lg opacity-90">Faculty Members</div>
+                </div>
+                <div class="animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="text-4xl font-bold mb-2">25+</div>
+                    <div class="text-lg opacity-90">Years of Excellence</div>
+                </div>
+                <div class="animate-on-scroll" style="animation-delay: 0.3s;">
+                    <div class="text-4xl font-bold mb-2">5,000+</div>
+                    <div class="text-lg opacity-90">Graduates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <button class="modal-nav modal-prev" id="modalPrev">&#10094;</button>
+            <button class="modal-nav modal-next" id="modalNext">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">NMTC Tamale</h3>
+                    <p class="text-gray-300">Nurturing Compassion, Building Competence, Shaping Healthcare Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="admissions.html" class="text-gray-300 hover:text-white transition duration-300">Admissions</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>📍 Tamale Central, Northern Region</li>
+                        <li>📞 (+233) 372 095 859</li>
+                        <li>📧 principal@nmtctamale.edu.gh</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-sm">
+                <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+                <p class="mt-2 text-blue-400">Designed by Nifty Global Systems</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+
+            // Scroll to top functionality
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Gallery filtering
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0) scale(1)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px) scale(0.95)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalClose = document.querySelector('.modal-close');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            let currentImageIndex = 0;
+            let visibleImages = [];
+
+            function updateVisibleImages() {
+                visibleImages = Array.from(document.querySelectorAll('.gallery-image')).filter(img => {
+                    const item = img.closest('.gallery-item');
+                    return item && item.style.display !== 'none';
+                });
+            }
+
+            // Open modal when clicking on gallery images
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('gallery-image')) {
+                    updateVisibleImages();
+                    const clickedImage = e.target;
+                    currentImageIndex = visibleImages.indexOf(clickedImage);
+                    
+                    modalImg.src = clickedImage.src;
+                    modalImg.alt = clickedImage.alt;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close modal
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Navigate through images in modal
+            modalPrev.addEventListener('click', () => {
+                currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : visibleImages.length - 1;
+                modalImg.src = visibleImages[currentImageIndex].src;
+                modalImg.alt = visibleImages[currentImageIndex].alt;
+            });
+
+            modalNext.addEventListener('click', () => {
+                currentImageIndex = currentImageIndex < visibleImages.length - 1 ? currentImageIndex + 1 : 0;
+                modalImg.src = visibleImages[currentImageIndex].src;
+                modalImg.alt = visibleImages[currentImageIndex].alt;
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('active')) {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeModal();
+                            break;
+                        case 'ArrowLeft':
+                            modalPrev.click();
+                            break;
+                        case 'ArrowRight':
+                            modalNext.click();
+                            break;
+                    }
+                }
+            });
+
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('load-more');
+            let isLoading = false;
+
+            loadMoreBtn.addEventListener('click', () => {
+                if (isLoading) return;
+                
+                isLoading = true;
+                loadMoreBtn.textContent = 'Loading...';
+                loadMoreBtn.disabled = true;
+                
+                // Simulate loading new images
+                setTimeout(() => {
+                    // In a real application, you would fetch more images from your server
+                    // For this demo, we'll just show a message
+                    loadMoreBtn.textContent = 'No More Photos';
+                    loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    
+                    setTimeout(() => {
+                        loadMoreBtn.textContent = 'Load More Photos';
+                        loadMoreBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        loadMoreBtn.disabled = false;
+                        isLoading = false;
+                    }, 2000);
+                }, 1500);
+            });
+
+            // Scroll Animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll, .gallery-item');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            animateElements.forEach((element, index) => {
+                const elementObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 50); // Staggered animation
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                elementObserver.observe(element);
+            });
+
+            // Initialize visible images on page load
+            updateVisibleImages();
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta name="description" content="NMTC Tamale Gallery - View our campus, facilities, student life, and memorable moments.">
+    <title>Gallery - NMTC Tamale</title>
+    <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+        color: #334155;
+    }
+    .section-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        height: 3px;
+        background-color: #014820;
+        border-radius: 9999px;
+    }
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 40;
+    }
+    .mobile-menu.active {
+        display: flex;
+    }
+    .mobile-menu li {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    .mobile-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #00b16a;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .scroll-to-top:hover {
+        background-color: rgba(8, 84, 53, 1);
+        transform: translateY(-3px);
+    }
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .gallery-item {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .gallery-item.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    .gallery-image {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+    .gallery-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .filter-button {
+        transition: all 0.3s ease;
+    }
+    .filter-button.active {
+        background-color: #00b16a;
+        color: white;
+        transform: scale(1.05);
+    }
+    .filter-button:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        animation: fadeIn 0.3s ease;
+    }
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        animation: zoomIn 0.3s ease;
+    }
+    .modal-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+    .modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        transition: color 0.3s ease;
+    }
+    .modal-close:hover {
+        color: #00b16a;
+    }
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        padding: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+    }
+    .modal-nav:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-50%) scale(1.1);
+    }
+    .modal-prev {
+        left: 20px;
+    }
+    .modal-next {
+        right: 20px;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+        from { 
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to { 
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
