@@ -7,7 +7,8 @@
     <meta name="description" content="NMTC Tamale Academic Programs - Diploma in General Nursing, Registered Midwifery, and Post NAC/NAP Midwifery programs.">
     <title>Academic Programs - NMTC Tamale</title>
     <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="./js/tailwindcss.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -242,7 +243,7 @@
                     <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">About Us</a></li>
                     <li><a href="programs.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
                     <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Admissions</a></li>
-                    <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
+                    <li><a href="news.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
                     <li><a href="gallery.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Gallery</a></li>
                     <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Contact</a></li>
                 </ul>
@@ -425,13 +426,13 @@
         <div class="container lg:max-w-7xl mx-auto px-4">
             <!-- Tab Navigation -->
             <div class="flex flex-wrap justify-center mb-12 gap-4">
-                <button class="tab-button active px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('nursing')">
+                <button class="tab-button active px-8 py-4 rounded-lg font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('nursing')">
                     General Nursing
                 </button>
-                <button class="tab-button px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('midwifery')">
+                <button class="tab-button px-8 py-4 rounded-lg font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('midwifery')">
                     Registered Midwifery
                 </button>
-                <button class="tab-button px-8 py-4 rounded-full font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('post-nac')">
+                <button class="tab-button px-8 py-4 rounded-lg font-semibold text-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300" onclick="showTab('post-nac')">
                     Post NAC/NAP
                 </button>
             </div>
@@ -662,7 +663,7 @@
     </section>
 
     <!-- Program Statistics -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <!-- <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div class="container lg:max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Program Success</h2>
@@ -688,7 +689,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Admission Process -->
     <section class="py-16 bg-white">
@@ -734,9 +735,7 @@
                         <a href="admissions.html" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
                             Apply Now
                         </a>
-                        <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                            Contact Admissions
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -744,43 +743,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container lg:max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">NMTC Tamale</h3>
-                    <p class="text-gray-300">Nurturing Compassion, Building Competence, Shaping Healthcare Leaders.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Programs</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">General Nursing</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Registered Midwifery</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Post NAC/NAP</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="admissions.html" class="text-gray-300 hover:text-white transition duration-300">Admissions</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>📍 Tamale Central, Northern Region</li>
-                        <li>📞 (+233) 372 095 859</li>
-                        <li>📧 principal@nmtctamale.edu.gh</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 pt-6 text-center text-sm">
-                <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
-                <p class="mt-2 text-blue-400">Designed by Nifty Global Systems</p>
-            </div>
+  <footer class="bg-gray-800 text-white py-6 md:py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center text-xs sm:text-sm">
+            <p>&copy; <span id="year"></span> NMTC Tamale. All rights reserved.</p>
+            <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
         </div>
     </footer>
 
@@ -792,6 +758,12 @@
     </button>
 
     <script>
+         function year(){
+            const date = new Date();
+            const year = date.getFullYear();
+            document.querySelector('#year').innerHTML = year;
+        }
+        year();
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile Navigation Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');

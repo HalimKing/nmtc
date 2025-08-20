@@ -1,4 +1,99 @@
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - NMTC Tamale</title>
+    <meta name="description" content="Admissions at NMTC Tamale - Your journey to a rewarding healthcare career starts here.">
+    <meta name="keywords" content="Nursing, Midwifery, Admissions, NMTC Tamale, Healthcare Education">
+    <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="./js/tailwindcss.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }.mobile-menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #ffffff;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 40;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu li {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #3b82f6; /* Blue underline */
+            border-radius: 9999px;
+        }
+        .admissions-hero-background {
+            background-image: url('https://placehold.co/1920x400/1d4ed8/ffffff?text=Admissions'); /* Placeholder image for Admissions hero */
+            background-size: cover;
+            background-position: center;
+        }
+        .step-icon {
+            font-size: 3rem; /* Larger icon size */
+            color: #3b82f6; /* Blue color for icons */
+            margin-bottom: 1rem;
+        }
+          .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #014820;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+        }
+    </style>
 </style>
 
 <body class="antialiased">
@@ -22,9 +117,9 @@
                 <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium">
                     <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
                     <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">About Us</a></li>
-                    <li><a href="index.html#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
+                    <li><a href="programs.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Programs</a></li>
                     <li><a href="admissions.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Admissions</a></li>
-                    <li><a href="index.html#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
+                    <li><a href="news.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">News</a></li>
                     <li><a href="gallery.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Gallery</a></li>
                     <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:py-2">Contact</a></li>
                 </ul>
@@ -46,10 +141,14 @@
     </header>
 
     <!-- Page Hero Section -->
-    <section class="py-16 md:py-24 bg-gradient-to-br from-green-600 to-green-800 text-white">
+    <section class="py-8 md:py-8 bg-gradient-to-br from-green-600 to-green-800 text-white">
         <div class="container lg:max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-on-scroll">Gallery</h1>
-            <p class="text-xl md:text-2xl opacity-90 animate-on-scroll" style="animation-delay: 0.2s;">Explore our campus, facilities, and student life</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
+                <nav class="text-sm md:text-base">
+                    <a href="index.html" class="hover:text-gray-200 transition duration-300">Home</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-200">Gallery</span>
+                </nav>
         </div>
     </section>
 
@@ -57,22 +156,22 @@
     <section class="py-8 bg-white sticky top-20 z-40 shadow-sm">
         <div class="container lg:max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-4">
-                <button class="filter-button active bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="all">
+                <button class="filter-button active bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="all">
                     All Photos
                 </button>
-                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="campus">
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="campus">
                     Campus
                 </button>
-                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="facilities">
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="facilities">
                     Facilities
                 </button>
-                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="students">
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="students">
                     Student Life
                 </button>
-                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="events">
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="events">
                     Events
                 </button>
-                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-full font-semibold transition duration-300" data-filter="graduation">
+                <button class="filter-button bg-gray-200 hover:bg-[#00b16a] hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300" data-filter="graduation">
                     Graduation
                 </button>
             </div>
@@ -116,7 +215,7 @@
                 </div>
 
                 <!-- Facilities Images -->
-                <div class="gallery-item" data-category="facilities">
+                <!-- <div class="gallery-item" data-category="facilities">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <img src="./images/image-2.png" alt="Library" class="gallery-image w-full h-64 object-cover">
                         <div class="p-4">
@@ -124,9 +223,9 @@
                             <p class="text-gray-600 text-sm">Modern learning resources center</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="gallery-item" data-category="facilities">
+                <!-- <div class="gallery-item" data-category="facilities">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <img src="./images/image-3.png" alt="Simulation Lab" class="gallery-image w-full h-64 object-cover">
                         <div class="p-4">
@@ -134,10 +233,10 @@
                             <p class="text-gray-600 text-sm">State-of-the-art training facilities</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Student Life Images -->
-                <div class="gallery-item" data-category="students">
+                <!-- <div class="gallery-item" data-category="students">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <img src="./images/t1.png" alt="Student Activities" class="gallery-image w-full h-64 object-cover">
                         <div class="p-4">
@@ -145,9 +244,9 @@
                             <p class="text-gray-600 text-sm">Engaging campus life experiences</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="gallery-item" data-category="students">
+                <!-- <div class="gallery-item" data-category="students">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <img src="./images/t2.png" alt="Study Groups" class="gallery-image w-full h-64 object-cover">
                         <div class="p-4">
@@ -155,7 +254,7 @@
                             <p class="text-gray-600 text-sm">Students working together</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Events Images -->
                 <div class="gallery-item" data-category="events">
@@ -169,7 +268,7 @@
                 </div>
 
                 <!-- Placeholder images for demonstration -->
-                <div class="gallery-item" data-category="facilities">
+                <!-- <div class="gallery-item" data-category="facilities">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <div class="gallery-image w-full h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                             <div class="text-center text-white">
@@ -219,9 +318,9 @@
                             <p class="text-gray-600 text-sm">Hands-on nursing practice sessions</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="gallery-item" data-category="events">
+                <!-- <div class="gallery-item" data-category="events">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <div class="gallery-image w-full h-64 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                             <div class="text-center text-white">
@@ -236,7 +335,7 @@
                             <p class="text-gray-600 text-sm">Community health awareness event</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -250,7 +349,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+    <!-- <section class="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
         <div class="container lg:max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="animate-on-scroll">
@@ -271,7 +370,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Image Modal -->
     <div id="imageModal" class="modal">
@@ -284,37 +383,13 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container lg:max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">NMTC Tamale</h3>
-                    <p class="text-gray-300">Nurturing Compassion, Building Competence, Shaping Healthcare Leaders.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="admissions.html" class="text-gray-300 hover:text-white transition duration-300">Admissions</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>📍 Tamale Central, Northern Region</li>
-                        <li>📞 (+233) 372 095 859</li>
-                        <li>📧 principal@nmtctamale.edu.gh</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 pt-6 text-center text-sm">
-                <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
-                <p class="mt-2 text-blue-400">Designed by Nifty Global Systems</p>
-            </div>
+    <footer class="bg-gray-800 text-white py-6 md:py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center text-xs sm:text-sm">
+            <p>&copy; <span id="year"></span> NMTC Tamale. All rights reserved.</p>
+            <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
         </div>
     </footer>
+
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" aria-label="Scroll to top">
@@ -324,6 +399,12 @@
     </button>
 
     <script>
+         function year(){
+            const date = new Date();
+            const year = date.getFullYear();
+            document.querySelector('#year').innerHTML = year;
+        }
+        year();
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile Navigation Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');

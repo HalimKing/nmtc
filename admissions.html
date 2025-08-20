@@ -8,7 +8,8 @@
     <meta name="keywords" content="Nursing, Midwifery, Admissions, NMTC Tamale, Healthcare Education">
     <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="./js/tailwindcss.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -59,6 +60,9 @@
             background-image: url('https://placehold.co/1920x400/1d4ed8/ffffff?text=Admissions'); /* Placeholder image for Admissions hero */
             background-size: cover;
             background-position: center;
+        }
+        .breadcrumb {
+            background: linear-gradient(135deg, #00b16a 0%, #014820 100%);
         }
         .step-icon {
             font-size: 3rem; /* Larger icon size */
@@ -116,11 +120,11 @@
                 <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4 lg:space-x-8 text-base md:text-lg font-medium ">
                     <li><a href="index.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1 md:px md:py-2">Home</a></li>
                     <li><a href="about.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">About Us</a></li>
-                    <li><a href="#programs" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Programs</a></li>
+                    <li><a href="programs.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Programs</a></li>
                     <li><a href="admissions.html" class="text-[#00b16a] font-bold hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Admissions</a></li>
-                    <li><a href="#news" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">News</a></li>
-                    <li><a href="#gallery" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Gallery</a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Contact</a></li>
+                    <li><a href="news.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">News</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Gallery</a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-[#00b16a] transition duration-300 rounded-md px-2 py-1  md:py-2">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -130,21 +134,33 @@
             <ul class="flex flex-col items-center text-lg font-medium">
                 <li><a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Home</a></li>
                 <li><a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">About Us</a></li>
-                <li><a href="#programs" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Programs</a></li>
+                <li><a href="programs.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Programs</a></li>
                 <li><a href="admissions.html" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300 py-2">Admissions</a></li>
-                <li><a href="#news" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">News</a></li>
-                <li><a href="#gallery" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Gallery</a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Contact</a></li>
+                <li><a href="news.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">News</a></li>
+                <li><a href="gallery.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Gallery</a></li>
+                <li><a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300 py-2">Contact</a></li>
             </ul>
         </nav>
     </header>
 
 
     <!-- Admissions Hero Section -->
-    <section class="admissions-hero-background bg-blue-700 text-white py-16 md:py-24 flex items-center justify-center text-center">
+    <!-- <section class="admissions-hero-background bg-blue-700 text-white py-16 md:py-24 flex items-center justify-center text-center">
         <div class="bg-black bg-opacity-50 p-8 rounded-lg shadow-xl max-w-2xl mx-4">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Admissions at NMTC Tamale</h2>
             <p class="text-lg md:text-xl">Your journey to a rewarding healthcare career starts here.</p>
+        </div>
+    </section> -->
+    <section class="breadcrumb text-white py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Admissions</h1>
+                <nav class="text-sm md:text-base">
+                    <a href="index.html" class="hover:text-gray-200 transition duration-300">Home</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-200">Admissions</span>
+                </nav>
+            </div>
         </div>
     </section>
 
@@ -202,9 +218,9 @@
                 <div>
                     <h4 class="text-2xl font-semibold mb-4 text-gray-800">Program-Specific Requirements:</h4>
                     <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
-                        <li>**Diploma in General Nursing:** Credit passes (A1-C6 for WASSCE, A-D for SSSCE) in core subjects and three elective science subjects (e.g., Biology, Chemistry, Physics).</li>
-                        <li>**Diploma in Registered Midwifery:** Credit passes in core subjects and three elective science subjects. Female applicants only.</li>
-                        <li>**Diploma in Post NAC/NAP Midwifery:** Must be a certified NAC/NAP with at least two years of post-qualification experience, plus credit passes in core subjects.</li>
+                        <li><strong>Diploma in General Nursing:</strong> Credit passes (A1-C6 for WASSCE, A-D for SSSCE) in core subjects and three elective science subjects (e.g., Biology, Chemistry, Physics).</li>
+                        <li> <strong>Diploma in Registered Midwifery:</strong> Credit passes in core subjects and three elective science subjects. Female applicants only.</li>
+                        <li> <strong>Diploma in Post NAC/NAP Midwifery:</strong>  Must be a certified NAC/NAP with at least two years of post-qualification experience, plus credit passes in core subjects.</li>
                     </ul>
                 </div>
             </div>
@@ -214,11 +230,13 @@
         </div>
     </section>
 
+    
+
     <!-- Important Dates Section -->
-    <section class="py-16 md:py-24 bg-white">
+    <!-- <section class="py-16 md:py-24 bg-white">
         <div class="container lg:max-w-7xl mx-auto px-4 text-center">
             <h3 class="text-3xl md:text-4xl font-bold mb-12 section-title mx-auto">Important Dates</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="bg-blue-50 p-6 rounded-lg shadow-md">
                     <p class="text-xl font-semibold text-blue-700 mb-2">Application Opens:</p>
                     <p class="text-2xl font-bold text-blue-900">January 15, 2024</p>
@@ -238,7 +256,7 @@
             </div>
             <p class="mt-8 text-gray-700 text-lg">Please note that dates are subject to change. Check this page regularly for updates.</p>
         </div>
-    </section>
+    </section> -->
 
     <!-- FAQ Section -->
     <section class="py-16 md:py-24 bg-gray-100">
@@ -290,16 +308,13 @@
     </section>
 
     <!-- Footer - Consistent with main site -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class=" lg:max-w-7xl mx-auto px-4 text-center text-sm">
-            <p>&copy; 2025 NMTC Tamale. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-6 md:py-8">
+        <div class="container lg:max-w-7xl mx-auto px-4 text-center text-xs sm:text-sm">
+            <p>&copy; <span id="year"></span> NMTC Tamale. All rights reserved.</p>
             <a href=""><p class="mt-2 text-blue-500">Designed by Nifty Global Systems</p></a>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
-            </div>
         </div>
     </footer>
+
 
      <!-- Scroll to Top Button -->
     <button class="scroll-to-top" aria-label="Scroll to top">
@@ -309,6 +324,13 @@
     </button>
 
     <script type="text/javascript">
+
+         function year(){
+            const date = new Date();
+            const year = date.getFullYear();
+            document.querySelector('#year').innerHTML = year;
+        }
+        year();
         // alert("Welcome to the NMTC Tamale About Us page! Explore our mission, vision, and history.");
             // Mobile Navigation Toggle functionality
             const mobileMenuButton = document.getElementById('mobile-menu-button');
